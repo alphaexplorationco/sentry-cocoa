@@ -364,6 +364,16 @@ class SentryFileManagerTests: XCTestCase {
 
         XCTAssertEqual(0, sut.getAllEnvelopes().count)
     }
+    
+    func testReadAppState() {
+        let appState = TestData.appState
+        sut.store(appState)
+        
+        let actual = sut.readAppState()
+        
+        XCTAssertEqual(appState.appVersion, actual?.appVersion)
+        XCTAssertEqual(appState.osVersion, actual?.osVersion)
+    }
 
     private func storeAsync(envelope: SentryEnvelope) {
         fixture.group.enter()
