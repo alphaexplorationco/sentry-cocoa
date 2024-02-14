@@ -6,8 +6,7 @@ on:
   pull_request:
     branches:
       - main
-  schedule:
-    - cron: '40 4 * * 6'
+  
 
 # https://docs.github.com/en/actions/using-jobs/using-concurrency#example-using-a-fallback-value
 concurrency:
